@@ -1,7 +1,6 @@
 package com.application.todo.Todo;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -9,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TodoService {
 	
-	private static List<Todo> todos = new ArrayList<>();
+	private static List<Todo> todos;
 	
 	static {
 		todos.add(new Todo(1, "stevie1","Learn AWS", 
@@ -19,5 +18,9 @@ public class TodoService {
 		todos.add(new Todo(3, "stevie1","Learn Full Stack Development", 
 				LocalDate.now().plusYears(3), false ));
 	}
+
+    public List<Todo> findByUsername(String username){
+        return todos;
+    }
 	
 }
